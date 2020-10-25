@@ -1,0 +1,40 @@
+.button {
+    text-align: center;
+    color: #000000;
+    outline: 1px solid #979797;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.is-unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button-digit {
+    background: #D8D8D8;
+}
+
+.digit {
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.zero {
+    grid-column: 1/4;
+}
+
+.button-operation {
+    background: #B15E5E;
+}
+
+.operation {
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
