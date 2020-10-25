@@ -45,23 +45,23 @@ export default class Calculator extends VueComponent {
                 </div>
 
                 <div class={styles.pad}>
-                    <CalculatorButton value={7} onClick={() => this.addDigit(7)} />
-                    <CalculatorButton value={8} onClick={() => this.addDigit(8)} />
-                    <CalculatorButton value={9} onClick={() => this.addDigit(9)} />
-                    <CalculatorButton value={"C"} onClick={() => this.clear()} />
+                    <CalculatorButton value={7} onClick={() => this.addDigit(7)}/>
+                    <CalculatorButton value={8} onClick={() => this.addDigit(8)}/>
+                    <CalculatorButton value={9} onClick={() => this.addDigit(9)}/>
+                    <CalculatorButton value={"C"} is-operation onClick={() => this.clear()}/>
 
-                    <CalculatorButton value={4} onClick={() => this.addDigit(4)} />
-                    <CalculatorButton value={5} onClick={() => this.addDigit(5)} />
-                    <CalculatorButton value={6} onClick={() => this.addDigit(6)} />
-                    <CalculatorButton value={"-"} onClick={() => this.addOperation("-")} />
+                    <CalculatorButton value={4} onClick={() => this.addDigit(4)}/>
+                    <CalculatorButton value={5} onClick={() => this.addDigit(5)}/>
+                    <CalculatorButton value={6} onClick={() => this.addDigit(6)}/>
+                    <CalculatorButton value={"-"} is-operation onClick={() => this.addOperation("-")}/>
 
-                    <CalculatorButton value={1} onClick={() => this.addDigit(1)} />
-                    <CalculatorButton value={2} onClick={() => this.addDigit(2)} />
-                    <CalculatorButton value={3} onClick={() => this.addDigit(3)} />
-                    <CalculatorButton value={"+"} onClick={() => this.addOperation("+")} />
+                    <CalculatorButton value={1} onClick={() => this.addDigit(1)}/>
+                    <CalculatorButton value={2} onClick={() => this.addDigit(2)}/>
+                    <CalculatorButton value={3} onClick={() => this.addDigit(3)}/>
+                    <CalculatorButton value={"+"} is-operation onClick={() => this.addOperation("+")}/>
 
-                    <CalculatorButton value={0} onClick={() => this.addDigit(0)} />
-                    <CalculatorButton value={"="} onClick={() => this.compute()} />
+                    <CalculatorButton value={0} onClick={() => this.addDigit(0)}/>
+                    <CalculatorButton value={"="} is-operation onClick={() => this.compute()}/>
                 </div>
             </div>
         )

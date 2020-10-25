@@ -17,14 +17,16 @@ export default class CalculatorButton extends VueComponent<Props> {
         required: true,
         validator: (value) => ["+", "-", "C", "="].includes(value) || (value >= 0 && value < 10)
     })
-    private value!: number;
+    private value!: number | string;
 
     @Prop({type: Boolean, default: false})
     private isOperation!: boolean;
 
-    public getButtonClass() {
+    public get getButtonClass() {
         if (this.isOperation)
-            return `${styles['is-unselectable']} ${styles.button} ${styles['button-operation']}`;
+            return this.value === "="
+                ? `${styles['is-unselectable']} ${styles.button} ${styles['button-operation']} ${styles['button-compute']}`
+                : `${styles['is-unselectable']} ${styles.button} ${styles['button-operation']}`;
         else if (this.value === 0)
             return `${styles['is-unselectable']} ${styles.button} ${styles.zero} ${styles['button-digit']}`;
         else
@@ -37,7 +39,7 @@ export default class CalculatorButton extends VueComponent<Props> {
 
     render() {
         return (
-            <div class={this.getButtonClass()} onclick={() => this.$emit('click')}>
+            <div class={this.getButtonClass} onclick={() => this.$emit('click')}>
                 <span class={this.getTextClass}>{this.value}</span>
             </div>
         )
