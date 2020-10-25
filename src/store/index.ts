@@ -73,7 +73,8 @@ export class Store {
         if (this.computing) return;
         if (this.isEmptyBuffer) return;
         if (this.lastSymbolIsOperation) {
-            this.buffer = this.buffer.substr(0, this.buffer.length - 1) + operation;
+            this.buffer = this.buffer.substr(0, this.buffer.length - 2) + operation + " ";
+            this.lastSymbol = operation;
         } else {
             this.buffer += " " + operation + " ";
             this.lastSymbol = operation;
@@ -88,6 +89,8 @@ export class Store {
 
     @Action()
     public async compute() {
+        if (this.isEmptyBuffer || this.lastSymbolIsOperation) return;
+
         this.setComputing(true);
         await new Promise(r => setTimeout(r, 2000));
         let buffer = this.buffer;
