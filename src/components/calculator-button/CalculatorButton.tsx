@@ -2,11 +2,15 @@ import {Component, Prop} from "vue-property-decorator";
 import {VueComponent} from "@/shims-vue";
 import styles from "./CalculatorButton.css?module";
 
+export type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type Operation = "+" | "-";
 export type SpecialOperation = "C" | "=";
 
+type Button = Digit | Operation | SpecialOperation;
+
 interface Props {
-    value: number | Operation | SpecialOperation;
+    value: Button;
+    isOperation?: boolean;
     onClick: () => void;
 }
 
@@ -17,7 +21,7 @@ export default class CalculatorButton extends VueComponent<Props> {
         required: true,
         validator: (value) => ["+", "-", "C", "="].includes(value) || (value >= 0 && value < 10)
     })
-    private value!: number | string;
+    private value!: Button;
 
     @Prop({type: Boolean, default: false})
     private isOperation!: boolean;

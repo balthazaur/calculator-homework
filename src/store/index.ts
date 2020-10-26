@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {Action, createVuexStore, Getter, Mutation, State} from "vuex-simple";
-import {Operation} from "@/components/calculator-button/CalculatorButton";
+import {Digit, Operation} from "@/components/calculator-button/CalculatorButton";
 
 Vue.use(Vuex);
 
@@ -42,7 +42,7 @@ export class Store {
     }
 
     @Mutation()
-    public addDigit(digit: number) {
+    public addDigit(digit: Digit) {
         if (this.computing) return;
         if (this.isEmptyBuffer) {
             if (digit === 0) {

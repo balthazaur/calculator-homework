@@ -4,7 +4,7 @@ import {VueComponent} from "@/shims-vue";
 import styles from './Calculator.css?module';
 import {Store} from "@/store";
 import {useStore} from "vuex-simple";
-import CalculatorButton, {Operation} from "@/components/calculator-button/CalculatorButton";
+import CalculatorButton, {Digit, Operation} from "@/components/calculator-button/CalculatorButton";
 
 @Component
 export default class Calculator extends VueComponent {
@@ -18,7 +18,7 @@ export default class Calculator extends VueComponent {
         return this.store.normalizedResult;
     }
 
-    public addDigit(digit: number) {
+    public addDigit(digit: Digit) {
         this.store.addDigit(digit);
     }
 
